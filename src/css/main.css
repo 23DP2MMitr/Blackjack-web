@@ -15,10 +15,8 @@ header {
     padding: 25px 100px;
 }
 
-.logo h2 {
-    font-weight: 400;
-    font-size: 16px;
-    color: white;
+.logo img {
+    width: 220px;
 }
 
 #nav-items {
