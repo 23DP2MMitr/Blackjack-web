@@ -63,15 +63,3 @@ header {
 span {
     color: white;
 }
-
-.hero-section button {
-    font-weight: 700;
-    font-size: 15px;
-    color: white;
-    width: 135px;
-    height: 65px;
-    border-radius: 50px 50px 50px 50px;
-    background-color: #ef5e41;
-    border: none;
-
-}
