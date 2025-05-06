@@ -20,71 +20,177 @@ header {
     padding: 25px 100px;
     height: 200px;
     background-color: black;
+    z-index: 1000000;
 }
 
 .logo img {
     width: 220px;
 }
 
-.CardsMain img{
-    width: 12vw;
+.CardsMain {
+    position: relative;
+    width: 50vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+    margin-right: -100px;
+}
+
+.CardsMain img {
+    width: 22vw;
+    max-width: 280px;
     position: absolute;
-    top: 37vh;
-    left: 65vw;
+    transition: transform 0.5s ease-out;
+    transform-style: preserve-3d;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
 }
 
 .CardsMain img:nth-child(1) {
     z-index: 1;
-    animation: rotate1 5s infinite;
+    animation: rotateFreeze1 3s forwards;
 }
 
 .CardsMain img:nth-child(2) {
     z-index: 2;
-    animation: rotate2 5s infinite;
+    animation: rotateFreeze2 3s forwards;
 }
 
 .CardsMain img:nth-child(3) {
     z-index: 3;
-    animation: rotate3 5s infinite;
+    animation: rotateFreeze3 3s forwards;
 }
 
 .CardsMain img:nth-child(4) {
     z-index: 4;
-    animation: rotate4 5s infinite;
+    animation: rotateFreeze4 3s forwards;
 }
 
-@keyframes rotate1 {
-    5% {
-        transform: translateX(-2rem) rotate(-20deg);
-    } 95% {
-        transform: rotate(0deg);
+@keyframes rotateFreeze1 {
+    0% {
+        transform: translateX(0) rotate(0deg) scale(1);
+    }
+    60% {
+        transform: translateX(-6rem) rotate(-30deg) scale(1.1);
+    }
+    100% {
+        transform: translateX(-5rem) rotate(-25deg) scale(1.1);
     }
 }
 
-@keyframes rotate2 {
-    5% {
-        transform: translateX(-1rem) rotate(-5deg) translateY(1rem);
-    } 95% {
-        transform: rotate(0deg);
+@keyframes rotateFreeze2 {
+    0% {
+        transform: translateX(0) rotate(0deg) scale(1);
+    }
+    60% {
+        transform: translateX(-2.5rem) rotate(-10deg) translateY(1.5rem) scale(1.1);
+    } 
+    100% {
+        transform: translateX(-2rem) rotate(-8deg) translateY(1.2rem) scale(1.1);
     }
 }
 
-@keyframes rotate3 {
-    5% {
-        transform: translateX(1rem) rotate(5deg) translateY(1.25rem);
-    } 95% {
-        transform: rotate(0deg);
+@keyframes rotateFreeze3 {
+    0% {
+        transform: translateX(0) rotate(0deg) scale(1);
+    }
+    60% {
+        transform: translateX(2.5rem) rotate(10deg) translateY(2rem) scale(1.1);
+    } 
+    100% {
+        transform: translateX(2rem) rotate(8deg) translateY(1.7rem) scale(1.1);
     }
 }
 
-@keyframes rotate4 {
-    5% {
-        transform: translateX(2.5rem) rotate(20deg) translateY(2.5rem);
-    } 95% {
-        transform: rotate(0deg);
+@keyframes rotateFreeze4 {
+    0% {
+        transform: translateX(0) rotate(0deg) scale(1);
+    }
+    60% {
+        transform: translateX(6rem) rotate(30deg) translateY(3rem) scale(1.1);
+    } 
+    100% {
+        transform: translateX(5rem) rotate(25deg) translateY(2.5rem) scale(1.1);
     }
 }
 
+@media (max-width: 1200px) {
+    .CardsMain img {
+        width: 25vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+        padding: 0 50px;
+    }
+    
+    .hero-section h1 {
+        font-size: 70px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .CardsMain {
+        width: 90vw;
+        height: 40vh;
+        margin-right: 0;
+    }
+    
+    .CardsMain img {
+        width: 35vw;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .CardsMain img {
+        width: 30vw;
+    }
+    
+    @keyframes rotateFreeze1 {
+        0% {
+            transform: translateX(0) rotate(0deg) scale(1);
+        }
+        100% {
+            transform: translateX(-2rem) rotate(-25deg) scale(1.1);
+        }
+    }
+    
+    @keyframes rotateFreeze2 {
+        0% {
+            transform: translateX(0) rotate(0deg) scale(1);
+        }
+        100% {
+            transform: translateX(-1rem) rotate(-8deg) translateY(1rem) scale(1.1);
+        }
+    }
+    
+    @keyframes rotateFreeze3 {
+        0% {
+            transform: translateX(0) rotate(0deg) scale(1);
+        }
+        100% {
+            transform: translateX(1rem) rotate(8deg) translateY(1rem) scale(1.1);
+        }
+    }
+    
+    @keyframes rotateFreeze4 {
+        0% {
+            transform: translateX(0) rotate(0deg) scale(1);
+        }
+        100% {
+            transform: translateX(2rem) rotate(25deg) translateY(1.5rem) scale(1.1);
+        }
+    }
+}
 
 #nav-items {
     display: flex;
@@ -118,33 +224,539 @@ header {
 
 .hero-section h1 {
     font-weight: 400;
-    font-size: 100px;
-    width: 600px;
+    font-size: 130px;
+    width: 700px;
     text-transform: capitalize;
     color: white;
+    line-height: 1.1;
+    letter-spacing: 2px;
 }
 
 .info-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 100vw;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 300px auto;
 }
 
 .info-box {
+    flex: 1;
+    min-width: 350px;
+    max-width: 500px;
+    min-height: 600px;
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 45px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    background-color: black;
+    color: white;
+    overflow: visible;
+}
+
+.info-box h2 {
     text-align: center;
-    background-color: aquamarine;
-    width: 20%;
-    height: 15rem;
-    margin-inline: 2rem;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.info-box p {
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+.info-box::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 275px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: -80px;
+    z-index: 1;
+}
+
+.info-box:nth-child(1)::after {
+    background-image: url('../img/J clubs.png');
+    left: -50px;
+    transform: rotate(-20deg);
+}
+
+.info-box:nth-child(2)::after {
+    background-image: url('../img/Q diamonds.png');
+    left: calc(50% - 75px);
+}
+
+.info-box:nth-child(3)::after {
+    background-image: url('../img/A hearts.png');
+    right: -50px;
+    transform: rotate(20deg);
+}
+
+.feature-card {
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.feature-card img {
+    height: 300px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.info-box:nth-child(1) .feature-card {
+    left: -40px;
+}
+
+.info-box:nth-child(1) .feature-card img {
+    transform: rotate(-25deg);
+}
+
+.info-box:nth-child(2) .feature-card {
+    bottom: -30px;
+}
+
+.info-box:nth-child(2) .feature-card img {
+    transform: rotate(0deg);
+}
+
+.info-box:nth-child(3) .feature-card {
+    right: -40px;
+}
+
+.info-box:nth-child(3) .feature-card img {
+    transform: rotate(25deg);
+}
+
+.info-box:hover .feature-card img {
+    transform: rotate(0) scale(1.1);
+}
+
+@media (max-width: 991px) {
+    .info-box {
+        min-width: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .info-box {
+        width: 100%;
+        max-width: 550px;
+        margin-bottom: 70px;
+    }
 }
 
 .download-container {
-    width: 100vw;
+    width: 100%;
+    padding: 80px 20px;
+    background-color: #005927;
+    background-image: linear-gradient(45deg, #004d22 25%, transparent 25%, transparent 75%, #004d22 75%, #004d22),
+                      linear-gradient(45deg, #004d22 25%, transparent 25%, transparent 75%, #004d22 75%, #004d22);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    position: relative;
 }
 
-@keyframes rotate {
-    to {
-        /* transform: rotateX(360deg) rotatey(360deg); */
+.download-container h1 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 60px;
+    color: white;
+}
+
+.download-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.step-card {
+    width: 280px;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.step-card h3 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.step-card ul {
+    padding-left: 20px;
+}
+
+.step-card li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+}
+
+.download-button {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.download-button button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #e30613;
+    border: 5px dashed white;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.download-button button:hover {
+    transform: scale(1.5) rotate(360deg);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.step-card a {
+    color: #66ffff;
+    text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    .download-steps {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 768px) {
+    .download-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step-card {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .download-button {
+        position: relative;
+        top: 0;
+        margin: 30px 0;
+    }
+}
+
+.floating-cards-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    perspective: 1500px;
+    overflow: hidden;
+}
+
+.floating-cards-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.floating-cards-section .card {
+    position: absolute;
+    width: 220px;
+    height: 320px;
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    animation: floatCard 20s infinite ease-in-out alternate;
+}
+
+.floating-cards-section .card p {
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+}
+
+.floating-cards-section .card:nth-child(1) {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+    transform: rotate3d(1, 1, 1, 15deg);
+}
+
+.floating-cards-section .card:nth-child(2) {
+    top: 60%;
+    left: 25%;
+    animation-delay: -4s;
+    transform: rotate3d(1, 1, 1, -15deg);
+}
+
+.floating-cards-section .card:nth-child(3) {
+    top: 35%;
+    left: 45%;
+    animation-delay: -8s;
+    transform: rotate3d(1, 1, 1, 30deg);
+}
+
+.floating-cards-section .card:nth-child(4) {
+    top: 20%;
+    right: 25%;
+    animation-delay: -12s;
+    transform: rotate3d(1, 1, 1, -20deg);
+}
+
+.floating-cards-section .card:nth-child(5) {
+    top: 55%;
+    right: 15%;
+    animation-delay: -16s;
+    transform: rotate3d(1, 1, 1, 25deg);
+}
+
+@keyframes floatCard {
+    0% {
+        transform: translate3d(0, 0, 0) rotate3d(1, 1, 1, var(--rotation, 0deg));
+    }
+    25% {
+        transform: translate3d(30px, -20px, 50px) rotate3d(1, 1, 1, calc(var(--rotation, 0deg) + 5deg));
+    }
+    50% {
+        transform: translate3d(-20px, 30px, -30px) rotate3d(1, 1, 1, calc(var(--rotation, 0deg) - 8deg));
+    }
+    75% {
+        transform: translate3d(20px, 20px, 40px) rotate3d(1, 1, 1, calc(var(--rotation, 0deg) + 10deg));
+    }
+    100% {
+        transform: translate3d(-10px, -15px, 20px) rotate3d(1, 1, 1, calc(var(--rotation, 0deg) - 5deg));
+    }
+}
+
+@media (max-width: 1400px) {
+    .hero-section h1 {
+        font-size: 100px;
+        width: 600px;
+    }
+}
+
+.card-features-section {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+.card-feature {
+    width: 30%;
+    min-height: 500px;
+    background-color: #0c0c0c;
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    padding: 40px 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card-feature h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.card-feature p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 40px;
+}
+
+.card-feature:nth-child(1) .feature-card img {
+    transform: rotate(-15deg);
+}
+
+.card-feature:nth-child(2) .feature-card img {
+    transform: rotate(0);
+}
+
+.card-feature:nth-child(3) .feature-card img {
+    transform: rotate(15deg);
+}
+
+.card-feature:hover .feature-card img {
+    transform: rotate(0) scale(1.1);
+}
+
+@media (max-width: 1024px) {
+    .card-features-section {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .card-feature {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-features-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card-feature {
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .floating-cards-section .card {
+        width: 200px;
+        height: 290px;
+    }
+
+    .floating-cards-section .card:nth-child(1) {
+        left: 5%;
+    }
+
+    .floating-cards-section .card:nth-child(2) {
+        left: 20%;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-cards-section {
+        height: 150vh;
+        padding-bottom: 50px;
+    }
+
+    .floating-cards-section .card {
+        width: 180px;
+        height: 260px;
+    }
+
+    .floating-cards-section .card p {
+        font-size: 20px;
+    }
+
+    .floating-cards-section .card:nth-child(1) {
+        top: 10%;
+        left: 10%;
+    }
+
+    .floating-cards-section .card:nth-child(2) {
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%) rotate3d(1, 1, 1, -15deg);
+    }
+
+    .floating-cards-section .card:nth-child(3) {
+        top: 50%;
+        left: 15%;
+    }
+
+    .floating-cards-section .card:nth-child(4) {
+        top: 70%;
+        right: 15%;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-cards-section {
+        height: 180vh;
+        padding-bottom: 80px;
+        overflow-x: hidden;
+    }
+
+    .floating-cards-section .card {
+        width: 160px;
+        height: 230px;
+    }
+
+    .floating-cards-section .card p {
+        font-size: 18px;
+    }
+
+    .floating-cards-section .card:nth-child(1) {
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%) rotate3d(1, 1, 1, 15deg);
+    }
+
+    .floating-cards-section .card:nth-child(2) {
+        top: 25%;
+        left: 20%;
+    }
+
+    .floating-cards-section .card:nth-child(3) {
+        top: 45%;
+        left: 50%;
+        transform: translateX(-50%) rotate3d(1, 1, 1, 30deg);
+    }
+
+    .floating-cards-section .card:nth-child(4) {
+        top: 65%;
+        right: 20%;
+    }
+
+    .floating-cards-section .card:nth-child(5) {
+        top: 85%;
+        left: 50%;
+        transform: translateX(-50%) rotate3d(1, 1, 1, 25deg);
+        margin-bottom: 50px;
+    }
+
+    @keyframes floatCard {
+        0% {
+            transform: translate3d(0, 0, 20px) rotate3d(1, 1, 1, var(--rotation, 0deg));
+        }
+        25% {
+            transform: translate3d(15px, -10px, 30px) rotate3d(1, 1, 1, calc(var(--rotation, 0deg) + 5deg));
+        }
+        50% {
+            transform: translate3d(-10px, 15px, -20px) rotate3d(1, 1, 1, calc(var(--rotation, 0deg) - 8deg));
+        }
+        75% {
+            transform: translate3d(10px, 10px, 25px) rotate3d(1, 1, 1, calc(var(--rotation, 0deg) + 10deg));
+        }
+        100% {
+            transform: translate3d(-5px, -8px, 15px) rotate3d(1, 1, 1, calc(var(--rotation, 0deg) - 5deg));
+        }
     }
 }
