@@ -9,21 +9,21 @@
         <link rel="stylesheet" href="src/css/main.css">
         <link rel="website icon" href="img/logo.png" type="image/png">
     </head>
-    <header id="home">
-        <div class="logo">
-            <img src="img/image.png" alt="">
-        </div>
-        <div class="nav">
-            <ul id="nav-items">
-                <li class="active">Home</li>
-                <li>About</li>
-                <li>Download</li>
-                <li>Contact Us</li>
-            </ul>
-        </div>
-    </header>
     <body>
-        <div class="hero-section">
+        <header>
+            <div class="logo">
+                <img src="img/image.png" alt="">
+            </div>
+            <div class="nav">
+                <ul id="nav-items">
+                    <li class="active"><a href="#home" style="text-decoration: none;">Home</a></li>
+                    <li><a href="#about" style="text-decoration: none;">About</a></li>
+                    <li><a href="#download" style="text-decoration: none;">Download</a></li>
+                    <li><a href="#contact" style="text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="home" class="hero-section">
             <div class="hero-content">
                 <h1>Welcome to Blackjack</h1>        
             </div>
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <div class="info-container">
+        <div class="info-container" id="about">
             <div class="info-box">
                 <h2>About the Game</h2>
                 <p>Blackjack is a popular card game played in casinos around the world. The objective is to beat the dealer by having a hand value closer to 21 without going over.</p>
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="download-container">
+        <div class="download-container" id="download">
             <h1>Download</h1>
             <div class="download-steps">
                 <div class="step-card">
@@ -118,7 +118,7 @@
             </div>
         </div>
         
-        <footer class="footer">
+        <footer class="footer" id="contact">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>About Us</h3>
@@ -127,20 +127,20 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="home">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="download">Download</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
                     <p>Email: info@blackjack.com</p>
-                    <p>Phone: (123) 456-7890</p>
+                    <p>Phone: (371) 12-345-789</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Blackjack. All rights reserved.</p>
+                <p>&copy; 2025 Blackjack. Maksims Mitrofanovs and Glebs Litvinenko</p>
             </div>
         </footer>
         <script src="src/js/index.js" async defer></script>
